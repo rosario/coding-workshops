@@ -12,7 +12,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link href='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic'>
-		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700'>		
 		<link media="screen" rel="stylesheet" type="text/css" href="css/style.css"> 
 		<link media="screen" rel="stylesheet" type="text/css" href="css/site.css"> 
 		<link rel="stylesheet" href="css/MarkerCluster.css" />
@@ -32,11 +31,12 @@
 			</ul>
 		</div>
 		<div class="container">
+			<div id="map"></div>
 			<div id="rightSide">
 				<div id="latestSpot"></div>
 				<div id="selectedSpot"></div>
 			</div>
-			<div id="map"></div>
+			
 		</div>
 		<div class="container">
 			<input id="tableFilter" type="text" placeholder="filter by.."></input>
@@ -45,12 +45,13 @@
 			<div id="hackSpotsTable"></div>
 		</div>
 		<div id="info" class="container">
-			<h3>Contribute! <div style="display:inline;" id="theNumberofSpots"></div></h3>			
-			<p>This website is hooked up to <a href="https://docs.google.com/spreadsheet/ccc?key=0AjW3KStmslDndFVrS2x2STNGR3JWZnZyQUxBTjk1RlE#gid=0" target="_blank">this Google Spreadsheet</a>. 
-				Click and add your favorite hack spots to the bottom of the list! 
-				For the map you'll need to <strong>get the lat and long</strong> of the spot, 
-				you can get that <a href="http://www.latlong.net/" target="_blank">here</a>. 
-				The locating of these places is helpful, so please try to fill out all the columns.</p> 
+			<h3>Contribute! <!-- <div style="display:inline;" id="theNumberofSpots"></div> --></h3>			
+			<p>Add more Coding Workshops using this 
+				<a href="https://docs.google.com/spreadsheet/ccc?key=0AjW3KStmslDndFVrS2x2STNGR3JWZnZyQUxBTjk1RlE#gid=0" target="_blank">this Google Spreadsheet</a>.
+				The website will auto-update after you've saved (thanks to <a href="http://jlord.github.io/sheetsee.js/"> Sheetsee.js</a>).
+				For the map you'll need to <strong>get the lat and long</strong> of the venue, 
+				you can get use this <a href="http://www.latlong.net/" target="_blank">website</a>. 
+				Please try to fill out all the columns.</p> 
 
 			<h3>Info</h3>
 			<p>A shameless copy of <a href="http://jlord.github.io/hack-spots/">Hack Spots</a>, but for Coding Workshops.
@@ -68,6 +69,7 @@
 		<table>
 		<tr>
 			<th class="tHeader">Name</th>
+			<th class="tHeader">Website</th>
 			<th class="tHeader">Address</th>
 			<th class="tHeader">City</th>
 			<th class="tHeader">Country</th>
@@ -76,10 +78,10 @@
 		  {{#rows}}
 		  	<tr id="{{rowNumber}}" class="spotRow">
 		  		<td>{{name}}</td>
+		  		<td>{{website}}</td>
 		  		<td>{{address}}</td>
 		  		<td>{{city}}</td>
 		  		<td>{{country}}</td>
-		  		<td><a class="button" href="https://maps.google.com/maps?q={{address}},{{city}},{{country}}" target="_blank">G Map</a> </td>
 		  	</tr>
 		  {{/rows}}
 	  </table>
@@ -89,6 +91,7 @@
 			{{#rows}}
 				<h4 class="fauxButton">MOST RECENT SPOT</h4>
 				<h2>{{name}}</h2>
+				<p class="colorText"><a href="{{website}}"> {{website}} </a><p>
 				<p class="colorText">{{address}}<p>
 				<p class="colorText">{{city}},{{country}} {{#postcode}} {{postcode}} {{/postcode}}</p>
 				<ul>
@@ -101,7 +104,7 @@
 			  	<li><span class="category">Refund:</span> {{refund}}</li>
 			  	<li><span class="category">Financial Aid:</span> {{financialaid}}</li>
 			  	<li><span class="category">Payment Plan:</span> {{paymentplan}}</li>
-			  	<li><span class="category">Contributed By:</span> <a href="http://www.twitter.com/{{contributerstwitter}}" target="_blank">@{{contributerstwitter}}</a></li>
+			  	<li><span class="category">Twitter:</span> <a href="http://www.twitter.com/{{contributerstwitter}}" target="_blank">@{{contributerstwitter}}</a></li>
 		  		</ul>
 		  	<ul>
 		  		<li><a href="https://maps.google.com/maps?q={{address}},{{city}},{{state}}" target="_blank">View in Google Maps</a></li>		  		
