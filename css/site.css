@@ -24,7 +24,7 @@ code {font-family: "Consolas", "Ubuntu Mono", monospace; line-height: 22px; font
 #map {height: 420px; width: 60%; background: #DADADA; float:left;}
 #map a {border: none;}
 
-.container {margin:0px;}
+.container {margin:0px; margin-bottom:1em;}
 #tableFilter {margin: 12px 0px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Lato; color: #333; font-size: 13px; height: 22px;}
 
 ::selection {background: #E5FF1D;} 
